@@ -72,16 +72,17 @@ const Taken = () => {
           setQuestions(questions);
           setName(data.name);
           setStatus(data.status);
+          setRemainTime(data.time);
 
-          setInterval(() => {
-            let createAt = Date.parse(data.createdAt);
-            let now = new Date().getTime();
-            let minuteRemain = Math.floor(
-              (createAt - now) / 1000 / 60 + data.time
-            );
-            console.log(createAt, now, data.time);
-            setRemainTime(minuteRemain);
-          }, 1000);
+          // setInterval(() => {
+          //   let createAt = Date.parse(data.createdAt);
+          //   let now = new Date().getTime();
+          //   let minuteRemain = Math.floor(
+          //     (createAt - now) / 1000 / 60 + data.time
+          //   );
+          //   console.log(createAt, now, data.time);
+          //   setRemainTime(minuteRemain);
+          // }, 1000);
 
           //   form.setFieldsValue({
           //     name: data.name,
