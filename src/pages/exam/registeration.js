@@ -14,6 +14,7 @@ const tailLayout = {
 };
 const Registeration = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
@@ -25,9 +26,11 @@ const Registeration = () => {
 
   const onFinish = (values) => {
     console.log("Success:", values);
+    setLoading(true);
     api
       .registeration(router.query.id, name)
       .then((res) => {
+        setLoading(false);
         console.log("res: ", res);
         let answerId = res.data.data._id;
         let examId = res.data.data.examId;
@@ -38,6 +41,7 @@ const Registeration = () => {
         }
       })
       .catch((err) => {
+        setLoading(false);
         var message = "Something went wrong";
         if (err.response && err.response.data && err.response.data.message) {
           message = err.response.data.message;
@@ -62,6 +66,7 @@ const Registeration = () => {
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
+        loading={loading}
       >
         <Form.Item
           label="Your name"

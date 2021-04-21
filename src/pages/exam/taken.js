@@ -136,9 +136,13 @@ const Taken = () => {
       result.push(choices);
     });
     console.log("AnsserID: ", answersId);
+    setLoading(true);
     api
       .submit(answersId, result)
-      .then((resp) => console.log(resp))
+      .then((resp) => {
+        console.log(resp);
+        setLoading(false);
+      })
       .catch((err) => {
         let messageErr = "Something went wrong!";
         if (
@@ -152,6 +156,7 @@ const Taken = () => {
         // debugger;
         console.log(err);
         message.error(messageErr);
+        setLoading(false);
       });
     console.log("result: ", result);
   };
