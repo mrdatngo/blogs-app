@@ -1,5 +1,5 @@
 module.exports = {
   env: {
-    baseApi: "http://localhost:9000",
+    baseApi: "https://blogs-ad-api.herokuapp.com",
   },
 };
