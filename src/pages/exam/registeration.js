@@ -84,7 +84,7 @@ const Registeration = () => {
           <Text type="danger">{message}</Text>
         </div>
         <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" loading={loading}>
             Submit
           </Button>
         </Form.Item>
